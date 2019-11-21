@@ -24,6 +24,7 @@ public class SolrTestCRUD {
      */
     @BeforeEach
     public void init() {
+        // Specify the solr core that we want to do operations
         solrUrl = "http://localhost:8983/solr/lhc_core";
         solrClient = new HttpSolrClient.Builder(solrUrl)
                 .withConnectionTimeout(10000)
