@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">  
+<properties>  
+	<comment>IK Analyzer special configuration</comment>
+	<!--Users may set up his own hotwords -->
+	<entry key="ext_dict">hotword.dic;</entry>
+	
+	<!--Users may set up his own stopwords-->
+	<entry key="ext_stopwords">stopword.dic;</entry> 
+	
+</properties>
