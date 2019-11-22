@@ -21,7 +21,7 @@ public class SolrTestCRUD {
     HttpSolrClient solrClient;
 
     /**
-     * Initialize the url and the solrClient to do the CRUD operations.
+     * Initialize the solrUrl and the solrClient to do the CRUD operations.
      */
     @BeforeEach
     public void init() throws IOException {
@@ -29,11 +29,14 @@ public class SolrTestCRUD {
         Properties properties = new Properties();
         properties.load(this.getClass().getResourceAsStream("/solr.properties"));
         
-        solrUrl = "http://localhost:8983/solr/" + properties.getProperty("core");
+        solrUrl = properties.getProperty("url");
         solrClient = new HttpSolrClient.Builder(solrUrl)
                 .withConnectionTimeout(10000)
                 .withSocketTimeout(60000)
                 .build();
+        
+//        System.out.println(solrUrl);
+//        System.out.println(solrClient);
         
     }
 
@@ -121,7 +124,7 @@ public class SolrTestCRUD {
     public void testQuery() throws IOException, SolrServerException {
         SolrQuery query = new SolrQuery();
         // Set the query object to query the documents whose names contain "ball"
-        query.setQuery("name:ball");
+        query.setQuery("*:*");
 //        query.setQuery("*:*");
 //        query.set("q", "name:ball");
         QueryResponse response = solrClient.query(query);
@@ -149,7 +152,7 @@ public class SolrTestCRUD {
     @Test
     public void updateIndex() throws IOException, SolrServerException {
         SolrInputDocument doc = new SolrInputDocument();
-        doc.addField("id", "1");
+        doc.addField("id", "2");
         doc.addField("name", "water ball");
         doc.addField("size", "2.0");
 
