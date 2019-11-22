@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1da06d07-bcaf-490e-a8a6-cf14088b169b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1da06d07-bcaf-490e-a8a6-cf14088b169b" name="Default Changelist" comment="Add properties file. Read the core name from properties">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solrtest/SolrTestCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solrtest/SolrTestCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/solrtest/SolrTestCRUD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/solr.properties" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,11 +34,13 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/solrtest" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -165,8 +169,17 @@
       <workItem from="1574326598147" duration="7826000" />
       <workItem from="1574350265834" duration="112000" />
       <workItem from="1574351025306" duration="57000" />
-      <workItem from="1574446602961" duration="2237000" />
+      <workItem from="1574446602961" duration="3092000" />
+      <workItem from="1574449808969" duration="599000" />
     </task>
+    <task id="LOCAL-00001" summary="Add properties file. Read the core name from properties">
+      <created>1574449005266</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574449005266</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,5 +197,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add properties file. Read the core name from properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add properties file. Read the core name from properties" />
   </component>
 </project>

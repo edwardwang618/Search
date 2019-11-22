@@ -35,6 +35,7 @@ public class SolrTestCRUD {
                 .withConnectionTimeout(10000)
                 .withSocketTimeout(60000)
                 .build();
+        
         System.out.println(solrClient);
         System.out.println(solrUrl);
     }
