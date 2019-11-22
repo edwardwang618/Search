@@ -24,7 +24,6 @@ public class SolrTestCRUD {
      * Initialize the url and the solrClient to do the CRUD operations.
      */
     @BeforeEach
-    @Test
     public void init() throws IOException {
         // Specify the solr core that we want to do operations
         Properties properties = new Properties();
@@ -36,8 +35,6 @@ public class SolrTestCRUD {
                 .withSocketTimeout(60000)
                 .build();
         
-        System.out.println(solrClient);
-        System.out.println(solrUrl);
     }
 
     /**
