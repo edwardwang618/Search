@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class SolrTestCRUD {
 
@@ -23,14 +24,19 @@ public class SolrTestCRUD {
      * Initialize the url and the solrClient to do the CRUD operations.
      */
     @BeforeEach
-    public void init() {
+    @Test
+    public void init() throws IOException {
         // Specify the solr core that we want to do operations
-        solrUrl = "http://localhost:8983/solr/lhc_core";
+        Properties properties = new Properties();
+        properties.load(this.getClass().getResourceAsStream("/solr.properties"));
+        
+        solrUrl = "http://localhost:8983/solr/" + properties.getProperty("core");
         solrClient = new HttpSolrClient.Builder(solrUrl)
                 .withConnectionTimeout(10000)
                 .withSocketTimeout(60000)
                 .build();
-//        System.out.println(solrClient);
+        System.out.println(solrClient);
+        System.out.println(solrUrl);
     }
 
     /**

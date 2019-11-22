@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1da06d07-bcaf-490e-a8a6-cf14088b169b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/solrDemo1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solrtest/SolrTestCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solrtest/SolrTestCRUD.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,10 +33,21 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/solrtest" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/solrtest" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -49,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SolrTestCRUD.testQuery">
+  <component name="RunManager" selected="JUnit.SolrTestCRUD.init">
     <configuration name="SolrTestAdd.testDeleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="solrDemo1" />
       <extension name="coverage">
@@ -77,6 +89,22 @@
       <option name="PACKAGE_NAME" value="com.solrtest" />
       <option name="MAIN_CLASS_NAME" value="com.solrtest.SolrTestAdd" />
       <option name="METHOD_NAME" value="testQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolrTestCRUD.init" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="solrDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.solrtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.solrtest" />
+      <option name="MAIN_CLASS_NAME" value="com.solrtest.SolrTestCRUD" />
+      <option name="METHOD_NAME" value="init" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -114,29 +142,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolrTest.testQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="solrDemo1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.solrtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.solrtest" />
-      <option name="MAIN_CLASS_NAME" value="com.solrtest.SolrTest" />
-      <option name="METHOD_NAME" value="testQuery" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolrTestCRUD.init" />
         <item itemvalue="JUnit.SolrTestCRUD.testQuery" />
         <item itemvalue="JUnit.SolrTestCRUD.testAddDocument" />
         <item itemvalue="JUnit.SolrTestAdd.testQuery" />
         <item itemvalue="JUnit.SolrTestAdd.testDeleteById" />
-        <item itemvalue="JUnit.SolrTest.testQuery" />
       </list>
     </recent_temporary>
   </component>
@@ -153,6 +165,7 @@
       <workItem from="1574326598147" duration="7826000" />
       <workItem from="1574350265834" duration="112000" />
       <workItem from="1574351025306" duration="57000" />
+      <workItem from="1574446602961" duration="2237000" />
     </task>
     <servers />
   </component>
@@ -164,7 +177,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
