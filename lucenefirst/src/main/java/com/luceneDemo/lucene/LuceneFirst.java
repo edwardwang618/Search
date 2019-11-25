@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.document.*;
 import org.apache.lucene.document.Field.Store;
 import org.apache.lucene.index.*;
@@ -25,13 +26,17 @@ public class LuceneFirst {
      */
     @Test
     public void createIndex() throws IOException {
-        
+        File indexLocation = new File("index");
+        if (indexLocation.exists()) {
+            FileUtils.deleteDirectory(indexLocation);
+        }
+        indexLocation.mkdir();
         // Create Directory object, set the location where we save the indices
         // RAMDirectory means to save in the memory
         // Directory directory = new RAMDirectory();
         
         // Here we choose to save the indices to local disk path
-        Directory directory = FSDirectory.open(new File("index").toPath());
+        Directory directory = FSDirectory.open(indexLocation.toPath());
         
         // create indexWriter
         // IndexWriterConfig default constructor is using StandardAnalyzer
@@ -44,16 +49,16 @@ public class LuceneFirst {
         File[] files = dir.listFiles();
 
         // If there is no file, exit the method
-        if (null == files) {
+        if (null == files || 0 == files.length) {
             return;
         }
 
         for (File file : files) {
-            // Get field names
+            // Get field values
             String fileName = file.getName();
             String filePath = file.getPath();
             String fileContent = FileUtils.readFileToString(file, "utf-8");
-            // fileSize is equal to how many letters in the file
+            // fileSize equals to how many letters in the file
             long fileSize = FileUtils.sizeOf(file);
 
             // Create field
@@ -61,7 +66,7 @@ public class LuceneFirst {
 
             // Field fieldPath = new TextField("path", filePath, Store.YES);
             // Stored by default
-            Field fieldPath = new StoredField("name", filePath);
+            Field fieldPath = new StoredField("path", filePath);
 
             Field fieldContent = new TextField("content", fileContent, Store.YES);
 
@@ -118,10 +123,10 @@ public class LuceneFirst {
             int docId = scoreDoc.doc;
     
             Document document = indexSearcher.doc(docId);
-            System.out.println(document.get("name"));
-            System.out.println(document.get("path"));
-//            System.out.println(document.get("content"));
-            System.out.println(document.get("size"));
+            System.out.println("name = " + document.get("name"));
+            System.out.println("path = " + document.get("path"));
+//            System.out.println("content = " + document.get("content"));
+            System.out.println("size = " + document.get("size"));
             System.out.println("====================\n");
         }
     
@@ -141,16 +146,23 @@ public class LuceneFirst {
         Analyzer analyzer = new IKAnalyzer();
         // Create a Tokenstream object with regard to the text
         TokenStream tokenStream;
-        tokenStream = analyzer.tokenStream("", "The Spring Framework provides a comprehensive programming and configuration model");
+        tokenStream = analyzer.tokenStream("", "The Spring Framework provides a comprehensive programming and configuration model.");
 
-        // Set a pointer for the tokenStream
+        // Set a pointer for the tokenStream to get the terms
         CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
+        // Set a pointer for the tokenStream to get the starting and ending positions
+        OffsetAttribute offsetAttribute = tokenStream.addAttribute(OffsetAttribute.class);
         
+        // Place the pointer at the beginning of the text
         tokenStream.reset();
 
         // Loop the token to see what terms have been analyzed to build the index
         while (tokenStream.incrementToken()) {
-            System.out.println(charTermAttribute.toString());
+            System.out.println("start-> " + offsetAttribute.startOffset());
+            System.out.println(charTermAttribute);
+            System.out.println("end-> " + offsetAttribute.endOffset());
+    
+            System.out.println();
         }
         
         tokenStream.close();

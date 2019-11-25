@@ -4,9 +4,8 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StoredField;
 import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.Term;
+import org.apache.lucene.index.*;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.FSDirectory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +13,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 /**
  * To test basic operations we can do on index, add, delete and update
@@ -21,6 +21,7 @@ import java.io.IOException;
 public class IndexManager {
     
     private IndexWriter indexWriter;
+    private IndexSearcher indexSearcher;
     
     @BeforeEach
     public void init() throws IOException {
@@ -55,7 +56,8 @@ public class IndexManager {
     @Test
     public void deleteDocumentByQuery() throws IOException {
         // Delete all documents whose name contains "apache"
-        indexWriter.deleteDocuments(new Term("name", "apache"));
+        Query query = new TermQuery(new Term("name", "lucene"));
+        indexWriter.deleteDocuments(query);
         indexWriter.close();
     }
     
@@ -67,14 +69,13 @@ public class IndexManager {
     public void updateDocument() throws IOException {
         Document document = new Document();
         
-        document.add(new TextField("name", "After update", Field.Store.YES));
-        document.add(new TextField("name1", "After update1", Field.Store.YES));
-        document.add(new TextField("name2", "After update2", Field.Store.YES));
+        document.add(new TextField("name", "Test name", Field.Store.YES));
+        document.add(new TextField("content", "Test content", Field.Store.YES));
+        document.add(new TextField("newField", "Test field", Field.Store.YES));
 
         // What lucene will do is, to query the document whose name contains "spring",
         // delete them, then add the new document (the second parameter "document")
         indexWriter.updateDocument(new Term("name", "spring"), document);
         indexWriter.close();
-        
     }
 }
