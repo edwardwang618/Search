@@ -63,4 +63,4 @@ To import the data, we need to uncomment the following in solrconfig.xml:
 </requestHandler>
 ```
 
-For details, see files in the related_files directory.
+For details, please check the files in the related_files directory. And please notice that, the IDE might report error that some methods not found from the class "Products". By using "lombok", we do not need to add getter and setter in the java bean. Instead we only need to add "Data" annotation ahead of java bean. The code can run smoothly with lombok.
