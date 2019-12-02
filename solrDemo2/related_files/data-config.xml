@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>
+  <dataSource type="JdbcDataSource"
+              driver="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/solr_test"
+              user="root"
+              password="123456"/>
+  <document>
+    <entity name="products" query="select pid,pname,catalog_name,price,description,picture from products">
+      <field column="pid" name="id"/>
+      <field column="pname" name="prod_pname"/>
+      <field column="catalog_name" name="prod_catalog_name"/>
+      <field column="price" name="prod_price"/>
+      <field column="description" name="prod_description"/>
+      <field column="picture" name="prod_picture"/>
+    </entity>
+  </document>
+</dataConfig>
