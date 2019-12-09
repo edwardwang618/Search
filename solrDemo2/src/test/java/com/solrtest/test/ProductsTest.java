@@ -6,10 +6,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
-import org.apache.solr.client.solrj.response.FacetField;
-import org.apache.solr.client.solrj.response.PivotField;
-import org.apache.solr.client.solrj.response.QueryResponse;
-import org.apache.solr.client.solrj.response.UpdateResponse;
+import org.apache.solr.client.solrj.response.*;
 import org.apache.solr.common.StringUtils;
 import org.apache.solr.common.params.SolrParams;
 import org.apache.solr.common.util.NamedList;
@@ -31,6 +28,12 @@ public class ProductsTest {
     
     @Autowired
     private HttpSolrClient httpSolrClient;
+    
+    @Test
+    public void pingTest() throws IOException, SolrServerException {
+        SolrPingResponse ping = httpSolrClient.ping();
+        System.out.println(ping.getStatus());
+    }
     
     @After
     public void commitAndClose() throws IOException, SolrServerException {
@@ -54,16 +57,16 @@ public class ProductsTest {
     
     @Test
     public void delete() throws IOException, SolrServerException {
-        UpdateResponse response = httpSolrClient.deleteById("999998");
+        // UpdateResponse response = httpSolrClient.deleteById("999998");
 
 //        List<String> deleteIds = new ArrayList<>();
 //        deleteIds.add("999999");
 //        deleteIds.add("999998");
-//        UpdateResponse response = client.deleteById(deleteIds);
+//        UpdateResponse response = httpSolrClient.deleteById(deleteIds);
     
     
-//        UpdateResponse response = client.deleteByQuery("prod_pname:Test solr");
-//        UpdateResponse response = client.deleteByQuery("prod_price:[20 TO *]");
+       UpdateResponse response = httpSolrClient.deleteByQuery("prod_pname:Test solr");
+       // UpdateResponse response = httpSolrClient.deleteByQuery("prod_price:[20 TO *]");
     
         System.out.println(response);
     }
