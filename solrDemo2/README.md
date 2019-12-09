@@ -3,7 +3,7 @@ Products is the java bean that has been mapped to the table in MySQL.
 The table structure is like this:
 
 | Field        | Type         | Null | Key | Default | Extra          |
- --------------+--------------+------+-----+---------+----------------
+|--------------|--------------|------|-----|---------|----------------|
 | pid          | int(11)      | NO   | PRI | NULL    | auto_increment |
 | pname        | varchar(255) | YES  |     | NULL    |                |
 | catalog      | int(11)      | YES  |     | NULL    |                |
