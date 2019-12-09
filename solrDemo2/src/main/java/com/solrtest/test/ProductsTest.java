@@ -79,7 +79,8 @@ public class ProductsTest {
     
         // Default get 10 results
         System.out.println(list.size());
-        list.forEach(prod -> System.out.println(prod.getPid() + " " + prod.getPname()));
+        System.out.println(list.get(0));
+        // list.forEach(prod -> System.out.println(prod.getPid() + " " + prod.getPname()));
     
     }
     

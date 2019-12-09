@@ -35,4 +35,18 @@ public class Products implements Serializable {
     @Field("prod_description")
     private String description;
     
+    @Override
+    public String toString() {
+        return "Products{" +
+                "pid='" + pid + '\'' +
+                ", pname='" + pname + '\'' +
+                ", catalog=" + catalog +
+                ", catalogName='" + catalogName + '\'' +
+                ", price=" + price +
+                ", number=" + number +
+                ", picture='" + picture + '\'' +
+                ", releaseTime=" + releaseTime +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

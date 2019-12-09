@@ -2,9 +2,8 @@ Products is the java bean that has been mapped to the table in MySQL.
 
 The table structure is like this:
 
-+--------------+--------------+------+-----+---------+----------------+
 | Field        | Type         | Null | Key | Default | Extra          |
-+--------------+--------------+------+-----+---------+----------------+
+ --------------+--------------+------+-----+---------+----------------
 | pid          | int(11)      | NO   | PRI | NULL    | auto_increment |
 | pname        | varchar(255) | YES  |     | NULL    |                |
 | catalog      | int(11)      | YES  |     | NULL    |                |
@@ -14,7 +13,6 @@ The table structure is like this:
 | description  | longtext     | YES  |     | NULL    |                |
 | picture      | varchar(255) | YES  |     | NULL    |                |
 | release_time | datetime     | YES  |     | NULL    |                |
-+--------------+--------------+------+-----+---------+----------------+
 
 
 The information of 3803 goods has been stored in MySQL, and with the Dataimport interface in solr server, all data has been imported to solr server and analyzed to create index. The fields are defined as follow in the managed-schema file:
